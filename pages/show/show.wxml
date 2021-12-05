@@ -1,0 +1,12 @@
+<!--pages/show/show.wxml-->
+<view class="container"> 
+    <view wx:for="{{pictureUrls}}" wx:key="*this" wx:for-item="pictureUrl" wx:for-index="index" class="picture-show">
+        <view wx:if="{{currentPictureIndex == -1}}" id="titleArea">
+            <text id="title">{{title}}</text>
+            <text id="subTitle">{{subTitle}}</text>
+        </view>
+        <image wx:if="{{currentPictureIndex == index}}" src="{{pictureUrl}}" mode="widthFix"></image>
+    </view>
+    <image id="saveButton" src="/images/save-picture-icon.png" bindtap="savePicture"></image>
+    <image id="shareButton" src="/images/share-icon.png" bindtap="share"></image>
+</view>

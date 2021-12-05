@@ -1,0 +1,16 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="head">
+    <block wx:if="{{!openID}}">
+      <button wx:if="{{canGetUserProfile}}" class="login-button" bindtap="getUserProfile">登录</button>
+      <button wx:else class="login-button" open-type="getUserInfo" bindgetuserinfo="onGotUserInfo">登录</button>
+    </block>
+    <block wx:else>
+      <view id="user-info">
+        <image id="avatar" src="{{userInfo.avatarUrl}}"></image>
+        <view id="nickName">{{userInfo.nickName}}</view>
+      </view>
+      <button id="createButton" bindtap="toCreatePage">创建相册</button>
+    </block>
+  </view>
+</view>

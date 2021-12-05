@@ -1,0 +1,14 @@
+<!--pages/create/create.wxml-->
+<view class="container">
+    <view id="picturesArea">
+        <image wx:for="{{picturesPath}}" wx:key="index" wx:for-item="picturePath" wx:for-index="index" data-index="{{index}}" class="picture" src="{{picturePath}}" mode="aspectFill" bindlongpress="deletePicture"></image>
+        <image wx:if="{{currentPictureNum < maxPictureNum}}" id="addPictureButton" class="picture" src="/images/add-picture-icon.png" bindtap="addPicture"></image>
+    </view>
+    <view id="infoArea">
+        <input class="title-input" type="text" model:value="{{title}}" placeholder="请输入相册标题" maxlength="8" />
+        <input class="title-input" type="text" model:value="{{subTitle}}" placeholder="请输入相册子标题" maxlength="30" />
+    </view>
+    <view id="buttonArea">
+        <button id="submitButton" bindtap="generateAlbum">生成相册</button>
+    </view>
+</view>

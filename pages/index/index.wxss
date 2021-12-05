@@ -1,0 +1,39 @@
+/**index.wxss**/
+.head {
+  padding: 40rpx 50rpx 0 50rpx;
+  width: 100%;
+  height: 130rpx;
+}
+
+.login-button {
+  border-radius: 30rpx;
+  text-align: center;
+  background-color: #F9D5A7;
+}
+
+#user-info{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+#avatar {
+  width: 100rpx;
+  height: 100rpx;
+}
+#nickName {
+  margin-left: 30rpx;
+}
+
+#createButton {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 45rpx;
+  right: 50rpx;
+  width: 280rpx;
+  height: 100rpx;
+  border-radius: 50rpx;
+  background-color: #FFB085;
+}

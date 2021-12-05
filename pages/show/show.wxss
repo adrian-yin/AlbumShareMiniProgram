@@ -1,0 +1,55 @@
+/* pages/show/show.wxss */
+.picture-show {
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    opacity: 0;
+}
+
+.picture-show image {
+    width: 100%;
+    border-radius: 30rpx;
+}
+
+#titleArea {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+#title {
+    color: #90AACB;
+    font-size: 65rpx;
+    font-weight: bold;
+    letter-spacing: 8rpx;
+    text-shadow: #FFB085 8rpx 8rpx 1rpx;
+}
+#subTitle {
+    margin-top: 80rpx;
+    text-align: center;
+    color: #FFB085;
+    font-size: 43rpx;
+    font-weight: bold;
+    letter-spacing: 5rpx;
+}
+
+#saveButton {
+    position: absolute;
+    bottom: 55rpx;
+    right: 220rpx;
+    width: 100rpx;
+    height: 100rpx;
+    cursor: pointer;
+}
+
+#shareButton {
+    position: absolute;
+    bottom: 80rpx;
+    right: 100rpx;
+    width: 73rpx;
+    height:73rpx;
+    cursor: pointer;
+}
