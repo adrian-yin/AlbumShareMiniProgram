@@ -20,7 +20,7 @@ Page({
       userInfo: userInfoFromStorage,
       openID: userInfoFromStorage.openID
     });
-    if (this.data.openID !== '') {
+    if (this.data.openID) {
       // 设置用户信息全局变量
       app.globalData.userInfo = this.data.userInfo;
       app.globalData.openID = this.data.openID;

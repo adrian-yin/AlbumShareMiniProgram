@@ -43,6 +43,12 @@
   padding: 70rpx 40rpx 0 40rpx;
   width: 100%;
 }
+#noAlbums {
+  display: block;
+  position: relative;
+  top: 250rpx;
+  left: 20rpx;
+}
 .album {
   margin-top: 40rpx;
   padding: 20rpx 30rpx;

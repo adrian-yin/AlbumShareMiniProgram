@@ -29,6 +29,11 @@ Page({
                 });
             }
         });
+        // 打开分享
+        wx.showShareMenu({
+            withShareTicket: true,
+            menus: ['shareAppMessage', 'shareTimeline']
+        });
     },
     onReady: function () {
         const that = this;

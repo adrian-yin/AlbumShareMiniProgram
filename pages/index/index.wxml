@@ -14,6 +14,7 @@
     </block>
   </view>
   <view id="albumsArea">
+    <text wx:if="{{albums.length === 0}}" id="noAlbums">您还没有创建过相册，快创建一个吧~</text>
     <view wx:for="{{albums}}" wx:for-index="albumIndex" wx:for-item="album" wx:key="_id" mark:album="{{album}}" mark:albumIndex="{{albumIndex}}" class="album" bindtap="toShowPage" bindlongpress="deleteAlbum">
       <text class="album-title">{{album.title}}</text>
       <view class="album-preview-pictures">
