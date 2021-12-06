@@ -52,9 +52,13 @@ Page({
         // 图片消失动画
         that.animate('.picture-show', [{
                 opacity: 1.0,
+                rotate: 0,
+                scale: [1, 1]
             },
             {
                 opacity: 0.0,
+                rotate: 180,
+                scale: [0, 0]
             }
         ], 1000, function () {
             // 切换下一张图片
@@ -65,9 +69,13 @@ Page({
             setTimeout(function () {
                 that.animate('.picture-show', [{
                         opacity: 0.0,
+                        rotate: 180,
+                        scale: [0, 0]
                     },
                     {
                         opacity: 1.0,
+                        rotate: 360,
+                        scale: [1, 1]
                     }
                 ], 2000, function () {});
             }, 1500);
@@ -103,11 +111,20 @@ Page({
                                 wx.showToast({
                                     title: '保存成功',
                                 });
+                            },
+                            fail: res2 => {
+                                console.log('保存图片失败');
+                                wx.hideLoading();
+                                wx.showToast({
+                                  title: '保存失败',
+                                  icon: 'error'
+                                });
                             }
                         });
                     },
                     fail: res1 => {
-                        console.log('保存图片失败');
+                        console.log('下载图片失败');
+                        wx.hideLoading();
                     }
                 });
             },

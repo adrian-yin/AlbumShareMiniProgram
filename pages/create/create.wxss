@@ -40,13 +40,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 40rpx 0;
     width: 652rpx;
 }
 
 #submitButton {
     width: 45%;
     border-radius: 30rpx;
-    background-color: #FFB085;
+    background-image: linear-gradient(to right, #F9D5A7, #FFB085);
     font-size: large;
     color: #000000;
 }

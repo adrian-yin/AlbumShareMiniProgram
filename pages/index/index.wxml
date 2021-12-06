@@ -13,4 +13,14 @@
       <button id="createButton" bindtap="toCreatePage">创建相册</button>
     </block>
   </view>
+  <view id="albumsArea">
+    <view wx:for="{{albums}}" wx:for-index="albumIndex" wx:for-item="album" wx:key="_id" mark:album="{{album}}" mark:albumIndex="{{albumIndex}}" class="album" bindtap="toShowPage" bindlongpress="deleteAlbum">
+      <text class="album-title">{{album.title}}</text>
+      <view class="album-preview-pictures">
+        <block wx:for="{{album.pictureUrls}}" wx:key="index" wx:for-index="pictureIndex" wx:for-item="pictureUrl">
+          <image wx:if="{{pictureIndex < 3}}" src="{{pictureUrl}}" mode="aspectFill"></image>
+        </block>
+      </view>
+    </view>
+  </view>
 </view>

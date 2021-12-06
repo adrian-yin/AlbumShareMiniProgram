@@ -45,7 +45,7 @@ Page({
                     currentPictureNum--;
                 }
             }
-        })
+        });
     },
     // 生成相册
     generateAlbum: function() {
