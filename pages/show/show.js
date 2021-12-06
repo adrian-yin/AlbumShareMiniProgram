@@ -8,10 +8,18 @@ Page({
         subTitle: '',
         authorID: '',
         currentPictureIndex: -1,
-        changePictureInterval: null
+        changePictureInterval: null,
+        innerAudioContext: {},
+        isBackgroundMusicPlay: true
     },
     onLoad: function (options) {
         const that = this;
+        // 打开分享
+        wx.showShareMenu({
+            withShareTicket: true,
+            // menus: ['shareAppMessage', 'shareTimeline']
+            menus: ['shareAppMessage']
+        });
         that.setData({
             albumId: options.id
         });
@@ -29,11 +37,8 @@ Page({
                 });
             }
         });
-        // 打开分享
-        wx.showShareMenu({
-            withShareTicket: true,
-            menus: ['shareAppMessage', 'shareTimeline']
-        });
+        // 获取innerAudioContext
+        that.setInnerAudioContext();
     },
     onReady: function () {
         const that = this;
@@ -46,12 +51,36 @@ Page({
             }
         ], 2000, function () {});
     },
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage: function () {
-
+    onHide: function () {
+        // 暂停音频
+        this.innerAudioContext.pause();
     },
+    onShow: function () {
+        // 播放音频
+        this.innerAudioContext.play();
+    },
+    onUnload: function () {
+        // 停止音频
+        this.innerAudioContext.stop();
+        // 销毁音频
+        this.innerAudioContext.destroy();
+    },
+    // 分享给好友
+    onShareAppMessage: function () {
+        const that = this;
+        return {
+            title: that.data.title,
+            imageUrl: that.data.pictureUrls[0]
+        };
+    },
+    // // 分享到朋友圈
+    // onShareTimeline: function () {
+    //     const that = this;
+    //     return {
+    //         title: that.data.title,
+    //         imageUrl: that.data.pictureUrls[0]
+    //     }
+    // },
     changePicture: function () {
         const that = this;
         // 图片消失动画
@@ -139,6 +168,27 @@ Page({
                     title: '保存失败，没有权限'
                 });
             }
+        });
+    },
+    // 设置音频上下文
+    setInnerAudioContext: function() {
+        this.innerAudioContext = wx.createInnerAudioContext();
+        this.innerAudioContext.src = '/musics/Happy_Ukulele_smaller.mp3';
+        this.innerAudioContext.autoplay = true;
+        this.innerAudioContext.loop = true;
+    },
+    // 暂停背景音乐
+    pauseBackgroundMusic: function () {
+        this.innerAudioContext.pause();
+        this.setData({
+            isBackgroundMusicPlay: false
+        });
+    },
+    // 播放背景音乐
+    playBackgroundMusic: function () {
+        this.innerAudioContext.play();
+        this.setData({
+            isBackgroundMusicPlay: true
         });
     }
 })

@@ -8,5 +8,7 @@
         <image wx:if="{{currentPictureIndex == index}}" src="{{pictureUrl}}" mode="widthFix"></image>
     </view>
     <image id="saveButton" src="/images/save-picture-icon.png" bindtap="savePicture"></image>
-    <image id="shareButton" src="/images/share-icon.png" bindtap="share"></image>
+    <button open-type="share" id="shareButton"><image src="/images/share-icon.png"></image></button>
+    <image wx:if="{{isBackgroundMusicPlay}}" class="musicButton" src="/images/play-music-icon.png" bindtap="pauseBackgroundMusic"></image>
+    <image wx:else class="musicButton" src="/images/forbid-music-icon.png" bindtap="playBackgroundMusic"></image>
 </view>

@@ -32,6 +32,7 @@
   width: 280rpx;
   height: 100rpx;
   border-radius: 50rpx;
+  font-size: 40rpx;
   background-image: linear-gradient(to right, #F9D5A7, #FFB085);
 }
 
